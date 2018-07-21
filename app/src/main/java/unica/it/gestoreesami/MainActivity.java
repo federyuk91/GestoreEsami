@@ -23,10 +23,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-        ArrayList<Exam> exams = new ArrayList<>();
+
         unica.it.gestoreesami.ExamAdapter examsAdapter;
         ListView listView;
-
+    ArrayList<Exam> exams = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,8 +37,11 @@ public class MainActivity extends AppCompatActivity
         // Get the extras from the intent that started this activity
         Bundle exam_info = getIntent().getExtras();
 
+        if(exam_info!=null){
+            exams = exam_info.getParcelableArrayList("lista");
+        }
 
-        final Intent insert_exam = new Intent(this, ScrollingActivity.class);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.addExam);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -46,6 +49,9 @@ public class MainActivity extends AppCompatActivity
             public void onClick(View view) {
                 Bundle exam_list = new Bundle();
                 exam_list.putParcelableArrayList("lista", exams);
+
+                Intent insert_exam = new Intent(getApplicationContext(), ScrollingActivity.class);
+
                 insert_exam.putExtras(exam_list);
                 startActivity(insert_exam);
             }
@@ -62,17 +68,15 @@ public class MainActivity extends AppCompatActivity
 
 
 
-        exams.add(new Exam("Programmazione 1"));
-
-        if(exam_info!=null){
-            exams = exam_info.getParcelableArrayList("lista");
-        }
+        //exams.add(new Exam("Programmazione 1"));
 
         listView =  findViewById(R.id.list);
         examsAdapter = new unica.it.gestoreesami.ExamAdapter(this, exams, R.color.exam_bg);
         listView.setAdapter(examsAdapter);
     }
 
+    /*IMPORTANTE*/
+    //Le funzioni che seguono sono state inserite automaticamente dall'activity scelta, sono ancora tutte da vedere
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

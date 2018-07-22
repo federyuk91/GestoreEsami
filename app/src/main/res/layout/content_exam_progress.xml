@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".ExamProgress"
+    tools:showIn="@layout/activity_exam_progress">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="8sp">
+        <TextView
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="56sp"
+            android:textSize="36sp"
+            tools:text="@string/exam_name"/>
+        <TextView
+            android:id="@+id/dateView"
+            android:layout_width="match_parent"
+            android:layout_height="56sp"
+            android:paddingTop="30sp"
+            android:textSize="18sp"
+            tools:text="@string/exam_date"/>
+        <TextView
+            android:id="@+id/pageView"
+            android:layout_width="match_parent"
+            android:layout_height="56sp"
+            android:textSize="36sp"
+            tools:text="@string/page_number"/>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#6575c9</color>
     <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
-    <color name="tan_background">#FFF7DA</color>
-    <color name="exam_bg">#808080</color>
+    <color name="colorAccent">#9659cf</color>
+    <color name="colorPrimaryLight">#a4dfd5</color>
+    <color name="exam_bg">#929cd1</color>
+    <color name="standard_bg">#d4cbe1</color>
 </resources>

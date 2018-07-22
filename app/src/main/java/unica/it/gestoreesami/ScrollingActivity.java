@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -31,16 +32,27 @@ public class ScrollingActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                final EditText exam_name = (EditText)findViewById(R.id.examName);
-                exams.add(new Exam(exam_name.getText().toString()));
+                final String exam_name = ((EditText)findViewById(R.id.examName)).getText().toString();
+                final String page_number = ((EditText)findViewById(R.id.pageNumber)).getText().toString();
+                int page = 0;
+                if(!page_number.equals("")){
+                    page = Integer.parseInt(page_number);
+                }
 
-                Bundle exam_info = new Bundle();
-                exam_info.putParcelableArrayList("lista", exams);
+                if(exam_name.equals("")){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Inserire un nome per l'esame", Toast.LENGTH_LONG);
+                    toast.show();
+                }else {
+                    exams.add(new Exam(exam_name, page));
 
-                Intent update_exam = new Intent(getApplicationContext(), MainActivity.class);
-                update_exam.putExtras(exam_info);
+                    Bundle exam_info = new Bundle();
+                    exam_info.putParcelableArrayList("lista", exams);
+                    Intent update_exam = new Intent(getApplicationContext(), MainActivity.class);
+                    update_exam.putExtras(exam_info);
 
-                startActivity(update_exam);
+                    startActivity(update_exam);
+                }
+
             }
         });
 

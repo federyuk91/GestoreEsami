@@ -1,6 +1,8 @@
 package unica.it.gestoreesami;
 
 import android.content.Intent;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.Debug;
 import android.support.design.widget.FloatingActionButton;
@@ -15,17 +17,20 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-        unica.it.gestoreesami.ExamAdapter examsAdapter;
-        ListView listView;
+    unica.it.gestoreesami.ExamAdapter examsAdapter;
+    ListView listView;
+    Bundle exam_list = new Bundle();
     ArrayList<Exam> exams = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +43,12 @@ public class MainActivity extends AppCompatActivity
         Bundle exam_info = getIntent().getExtras();
 
         if(exam_info!=null){
-            exams = exam_info.getParcelableArrayList("lista");
+            if(exam_info.getParcelableArrayList("lista")!=null){
+                exams = exam_info.getParcelableArrayList("lista");
+            }
+
         }
+        exam_list.putParcelableArrayList("lista", exams);
 
 
 
@@ -47,8 +56,6 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Bundle exam_list = new Bundle();
-                exam_list.putParcelableArrayList("lista", exams);
 
                 Intent insert_exam = new Intent(getApplicationContext(), ScrollingActivity.class);
 
@@ -73,6 +80,25 @@ public class MainActivity extends AppCompatActivity
         listView =  findViewById(R.id.list);
         examsAdapter = new unica.it.gestoreesami.ExamAdapter(this, exams, R.color.exam_bg);
         listView.setAdapter(examsAdapter);
+
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+
+                // Get the {@link Exam} object at the given position the user clicked on
+                Exam exam = exams.get(position);
+                //Toast.makeText(getApplicationContext(), "Toast"+exam.getExamName(), Toast.LENGTH_LONG).show();
+                Intent goToProgressPage = new Intent(getApplicationContext(), ExamProgress.class);;
+                Bundle sendExamInfo = new Bundle();
+                sendExamInfo.putString("title", exam.getExamName());
+                sendExamInfo.putString("date", exam.getExamDate().toString());
+                sendExamInfo.putInt("pages", exam.getPageNumber());
+                sendExamInfo.putParcelableArrayList("lista", exams);
+                goToProgressPage.putExtras(sendExamInfo);
+                startActivity(goToProgressPage);
+            }
+        });
     }
 
     /*IMPORTANTE*/

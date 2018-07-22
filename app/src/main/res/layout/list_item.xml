@@ -32,7 +32,7 @@
 
         <TextView
             android:id="@+id/examName_textView"
-            android:layout_width="match_parent"
+            android:layout_width="289dp"
             android:layout_height="44dp"
             android:layout_weight="1"
             android:gravity="bottom"
@@ -43,7 +43,7 @@
 
         <TextView
             android:id="@+id/examDate_textView"
-            android:layout_width="match_parent"
+            android:layout_width="288dp"
             android:layout_height="44dp"
             android:layout_below="@id/examName_textView"
             android:layout_weight="1"
@@ -53,11 +53,13 @@
             tools:text="07/07/2018" />
 
         <ImageView
-            android:layout_width="48dp"
+            android:layout_width="79dp"
             android:layout_height="match_parent"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:layout_marginRight="16dp"
-            android:src="@drawable/ic_notifications_black_24dp" />
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/ic_notifications_black_24dp"
+            android:tint="@android:color/white" />
     </RelativeLayout>
 </RelativeLayout>

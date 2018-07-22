@@ -16,9 +16,9 @@ public class Exam implements Parcelable{
         this.pageNumber=pageNumber;
     }
 
-    public Exam(String examName){
+    public Exam(String examName, int pageNumber){
         this.examName = examName;
-        this.pageNumber= 0;
+        this.pageNumber= pageNumber;
         this.examDate = new Date();
     }
 

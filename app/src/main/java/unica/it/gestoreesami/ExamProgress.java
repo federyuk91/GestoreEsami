@@ -24,7 +24,7 @@ public class ExamProgress extends AppCompatActivity {
         TextView date = findViewById(R.id.dateView);
         date.setText(""+input.getString("date"));
         TextView pages = findViewById(R.id.pageView);
-        pages.setText(""+input.getInt("pages"));
+        pages.setText("Pagine Totali: "+input.getInt("pages"));
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

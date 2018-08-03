@@ -6,10 +6,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 public class ScrollingActivity extends AppCompatActivity {
 
@@ -44,7 +47,6 @@ public class ScrollingActivity extends AppCompatActivity {
                     toast.show();
                 }else {
                     exams.add(new Exam(exam_name, page));
-
                     Bundle exam_info = new Bundle();
                     exam_info.putParcelableArrayList("lista", exams);
                     Intent update_exam = new Intent(getApplicationContext(), MainActivity.class);

@@ -11,57 +11,56 @@
     android:background="@color/standard_bg">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
             android:text="@string/exam_name"
             android:textSize="24sp"/>
 
         <EditText
             android:id="@+id/examName"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
             android:ems="10"
             android:inputType="text"
             android:hint="es. Storia"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
             android:text="@string/page_number"
             android:textSize="24sp" />
 
         <EditText
             android:id="@+id/pageNumber"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
             android:ems="10"
             android:inputType="number"
             android:hint="es. 997"/>
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin"
             android:textSize="24sp"
             android:text="@string/exam_date" />
 
         <EditText
             android:id="@+id/examDate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/text_margin"
+            android:layout_marginStart="@dimen/text_margin"
             android:ems="10"
             android:inputType="date"
             android:hint="es. 07/07/18"/>
-        <DatePicker
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:datePickerMode="spinner"/>
+
+
+
     </LinearLayout>
 
 </android.support.v4.widget.NestedScrollView>
